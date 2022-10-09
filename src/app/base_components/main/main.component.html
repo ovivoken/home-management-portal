@@ -1,0 +1,24 @@
+<ul class="row d-flex justify-content-between mt-2 p-0 m-0">
+  <li *ngFor="let room of allRooms" class="col-4 p-0">
+    <div class="card mb-2">
+      <h3 class="card-header">{{room.name}}</h3>
+      <div class="card-body">
+        <h5 class="card-title">ID: {{room.id}}</h5>
+        <h6 class="card-subtitle text-muted">Floor: {{room.floor}}</h6>
+      </div>
+      <div class="card-body">
+        <p class="card-text">
+         {{room.description}}
+        </p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li *ngFor="let sensor of room.sensors" class="list-group-item">id: {{sensor}}</li>
+      </ul>
+      <div class="card-body">
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+      <div class="card-footer text-muted">Last updated: 2 days ago</div>
+    </div>
+  </li>
+</ul>
