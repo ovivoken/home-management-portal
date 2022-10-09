@@ -1,4 +1,6 @@
-import { Component } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { Room, PropertyLocation } from "src/app/app.models";
+
 
 @Component({
   selector: 'sidebar',
@@ -7,15 +9,21 @@ import { Component } from "@angular/core";
 })
 export class SidebarComponent {
 
-  selectedEntity: any = "";
+  selectedLocation: any = {};
 
-  allLocations: any[] = [{ id: 1, name: "House" }, { id: 2, name: "Green House" }];
+  @Input() allLocations: PropertyLocation[] = []; 
 
-  selectRow(row: any){
-    if(row.id == this.selectedEntity.id){
-      this.selectedEntity = "";
+  @Output() selectLocationEvent = new EventEmitter<string>();
+
+
+  selectLocation(location: any) {
+    console.log(location);
+    if (location.id == this.selectedLocation.id) {
+      this.selectLocationEvent.emit("");
+      this.selectedLocation = {};
       return;
     }
-    this.selectedEntity = row;
+    this.selectLocationEvent.emit(location.id);
+    this.selectedLocation = location;
   }
 }
