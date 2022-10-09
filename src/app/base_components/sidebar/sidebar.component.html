@@ -1,0 +1,11 @@
+<!-- Toolbar -->
+<ul class="list-group m-2">
+  <li
+    *ngFor="let location of allLocations"
+    class="list-group-item d-flex justify-content-between align-items-center"
+    (click)="selectRow(location)"
+    [class.isRowSelected] = "selectedEntity.id == location.id"
+  >
+    {{ location.name }}
+  </li>
+</ul>
