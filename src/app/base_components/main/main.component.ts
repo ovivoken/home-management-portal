@@ -1,5 +1,5 @@
-import { Component } from "@angular/core";
-import { Room, Sensor } from "./main.models";
+import { Component, Input } from "@angular/core";
+import { PropertyLocation, Room, Sensor } from "src/app/app.models";
 
 @Component({
   selector: 'main',
@@ -8,11 +8,5 @@ import { Room, Sensor } from "./main.models";
 })
 export class MainComponent {
 
-  allRooms: Room[] = [
-    { id: '1', name: 'Living Room', description: 'Example Description', floor: 1, sensors: ['1', '5', '6'] },
-    { id: '2', name: 'Bedroom', description: 'Self Explanatory', floor: 2, sensors: ['1', '5', '10'] },
-    { id: '3', name: 'Kitchen', description: 'Yessss, the best room', floor: 1, sensors: ['1', '5', '15'] }];
-
-
-  allRoomSensors: Sensor[] = [];
+  @Input() selectedLocation: any = {};
 }

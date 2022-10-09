@@ -10,3 +10,10 @@ export interface Sensor{
     id: string;
     name: string;
 }
+
+
+export interface PropertyLocation{
+    id: string;
+    name: string;
+    rooms: Room[];
+}
