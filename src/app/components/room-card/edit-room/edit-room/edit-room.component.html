@@ -1,0 +1,95 @@
+<div>
+  <h3 mat-dialog-title>{{ room.name }}</h3>
+  <mat-divider></mat-divider>
+  <div mat-dialog-content class="mt-3 mb-2">
+    <form [formGroup]="roomForm">
+      <div class="form-group row">
+        <mat-form-field appearance="fill">
+          <mat-label>Name</mat-label>
+          <input formControlName="name" matInput />
+        </mat-form-field>
+      </div>
+      <div class="form-group row">
+        <mat-form-field appearance="fill">
+          <mat-label>Floor</mat-label>
+          <input formControlName="floor" matInput />
+        </mat-form-field>
+      </div>
+      <div class="form-group row">
+        <mat-form-field appearance="fill">
+          <mat-label>Description</mat-label>
+          <input formControlName="description" matInput />
+        </mat-form-field>
+      </div>
+      <div class="form-group row mb-2">
+        <mat-expansion-panel
+          (opened)="panelOpenStateExisting = true"
+          (closed)="panelOpenStateExisting = false"
+          class="p-0 m-0 mb-2"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title> Connected Sensors </mat-panel-title>
+            <mat-panel-description>
+              {{ panelOpenStateExisting ? "" : "click to expand" }}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <div class="existing-sensors-container">
+            <ul class="mt-3">
+              <li *ngFor="let sensor of room.sensors">
+                <mat-checkbox
+                  checked="selectedSensors.isSelected(sensor)"
+                  (click)="checkSensor(sensor)"
+                  color="primary"
+                >
+                  {{ sensor }}
+                </mat-checkbox>
+              </li>
+            </ul>
+          </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel
+          (opened)="panelOpenStateNew = true"
+          (closed)="panelOpenStateNew = false"
+          class="p-0 m-0"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title> Connect New Sensors </mat-panel-title>
+            <mat-panel-description>
+              {{ panelOpenStateNew ? "" : "click to expand" }}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div
+            class="d-flex justify-content-between m-0 p-0 connect-new-container"
+          >
+            <table class="w-100">
+              <tr
+                *ngFor="let sensor of allSensors"
+                class="d-flex justify-content-between text-center mt-2 pb-0 pr-2 new-sensor-tr"
+              >
+                <div>
+                  {{ sensor }}
+                </div>
+                <button mat-icon-button color="primary">
+                  <mat-icon (click)="addSensor(sensor)">add</mat-icon>
+                </button>
+              </tr>
+            </table>
+          </div>
+        </mat-expansion-panel>
+      </div>
+    </form>
+  </div>
+  <div mat-dialog-actions class="d-flex justify-content-between pt-0">
+    <button mat-raised-button [mat-dialog-close]="">Cancel</button>
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="!roomForm.valid"
+      (click)="confirm()"
+      cdkFocusInitial
+    >
+      Ok
+    </button>
+  </div>
+</div>

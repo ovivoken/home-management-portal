@@ -17,7 +17,6 @@ export class SidebarComponent {
 
 
   selectLocation(location: any) {
-    console.log(location);
     if (location.id == this.selectedLocation.id) {
       this.selectLocationEvent.emit("");
       this.selectedLocation = {};

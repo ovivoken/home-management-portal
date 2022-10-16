@@ -1,0 +1,26 @@
+<div class="card mb-3 custom-room-card">
+  <h3 class="card-header d-flex justify-content-between">
+    {{ room.name }} <span> Floor: {{ room.floor }}</span>
+  </h3>
+  <div class="card-body">
+    <p class="card-text">{{ room.description }}</p>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="card-title text-center justify-content-around m-0 p-0 bg-warning text-muted">
+    Sensors: ({{ room.sensors.length }})
+  </div>
+  <mat-divider></mat-divider>
+  <div class="container h-10 room-card-list-container">
+    <ul class="list-group list-group-flush mt-2">
+      <li class="list-group-item" *ngFor="let sensor of room.sensors">
+        sensor id: {{ sensor }}
+      </li>
+    </ul>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="d-flex justify-content-between m-2">
+    <button mat-raised-button (click)="openEditDialog(room)">EDIT</button>
+    <button mat-raised-button color="warn" (click)="openDeleteDialog(room)">DELETE</button>
+  </div>
+  <div class="card-footer text-muted mb-0">Last updated: 2 days ago</div>
+</div>
