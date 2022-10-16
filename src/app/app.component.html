@@ -1,13 +1,13 @@
 <!-- Toolbar -->
 <navbar></navbar>
-<body>
-  <div class="main-container">
+<body class="container-fluid">
+  <div class="row w-100">
     <sidebar
       [allLocations]="allLocations"
       (selectLocationEvent)="selectLocation($event)"
-      class="col-3 sidebar"
+      class="col-2 h-100"
     ></sidebar>
-    <main [selectedLocation]="selectedLocation" class="col-9 rooms-container"></main>
+    <main [selectedLocation]="selectedLocation" class="col-10 h-100"></main>
   </div>
 </body>
 <!-- Footer -->

@@ -1,0 +1,17 @@
+ul {
+  list-style: none;
+}
+
+.new-sensor-tr {
+  border-bottom: 1px solid;
+}
+
+.connect-new-container {
+  height: 300px;
+  overflow: auto;
+}
+
+.existing-sensors-container {
+  height: 200px;
+  overflow: auto;
+}

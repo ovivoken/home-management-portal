@@ -1,0 +1,8 @@
+.custom-room-card {
+  height: 600px;
+}
+
+.room-card-list-container {
+  overflow: auto;
+  height: 400px;
+}
